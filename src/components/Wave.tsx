@@ -6,7 +6,10 @@ type WaveProps = ComponentProps<"mesh"> & {
 };
 
 export default function Wave({ resolution = 128, ...meshProps }: WaveProps) {
-    const clampedResolution = useMemo(() => Math.max(2, Math.floor(resolution)), [resolution]);
+    const clampedResolution = useMemo(
+        () => Math.max(2, Math.floor(resolution)),
+        [resolution],
+    );
     const segments = clampedResolution - 1;
 
     return (

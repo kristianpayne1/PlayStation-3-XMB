@@ -12,7 +12,7 @@ WebGL-based recreation of the PlayStation 3 XrossMediaBar (XMB) wave rendering s
 
 ## Credits
 
-While this is inspired by the official PlayStation 3 XMB background wave design, the major starting point was from this [CodePen by Alphardex](https://codepen.io/alphardex/pen/poPZNwE). All of the modern optimizations and cleanups have been made from this code and I must admit, it was mostly trial and error with Claude/Gemini, I'M SORRY!
+While this is inspired by the official PlayStation 3 XMB background wave design, the major starting point was from this [CodePen by Alphardex](https://codepen.io/alphardex/pen/poPZNwE).
 
 ## Issues to resolve, PR's welcome!
 

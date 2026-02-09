@@ -17,6 +17,7 @@ To be fair, in it's current state, it's a miracle it even looks as good as it do
 The project is such a mess that you can feel free and clean up any of the mess I made, I'm so sorry.
 
 This whole idea and project came to be because I wanted an easter egg in an internal DevOps tool I was developing at work and I thought why not open-source it and make it better for everyone, since I couldn't find any other similar projects or clones.
+
 ## Credits
 
 While this is inspired by the official PlayStation 3 XMB background wave design, the major starting point was from this [CodePen by Alphardex](https://codepen.io/alphardex/pen/poPZNwE). All of the modern optimizations and cleanups have been made from this code and I must admit, it was mostly trial and error with Claude/Gemini, I'M SORRY!
@@ -42,23 +43,25 @@ The whole aim is just to recreate the background XMB waves effect which can then
 ## Local Development
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/linkev/PlayStation-3-XMB.git
 cd PlayStation-3-XMB
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Start the development server:
+
 ```bash
 npm run start
 ```
 
 4. Open your browser and navigate to `http://localhost:8000`
-
 
 ## Explanation of the files and folders
 
@@ -75,36 +78,40 @@ npm run start
 - "waves" folder is the actual code itself that runs and renders this whole mess.
 
 - "index.html" is the entry point and the frontend
+
 ## How to Use
 
 1. **Wave Configuration**: Adjust various parameters in the right panel:
-   - **Color Theme**: Choose from authentic PS3 monthly color themes
-   - **Flow Speed**: Control the wave animation speed
-   - **Wave Opacity**: Adjust wave transparency
-   - **Day/Night**: Change brightness levels
-   - **Sparkle Intensity**: Control particle visibility
+    - **Color Theme**: Choose from authentic PS3 monthly color themes
+    - **Flow Speed**: Control the wave animation speed
+    - **Wave Opacity**: Adjust wave transparency
+    - **Day/Night**: Change brightness levels
+    - **Sparkle Intensity**: Control particle visibility
 
 2. **Interface Controls**:
-   - **Hide Interface**: Click the "Hide Interface" button to enter fullscreen mode
-   - **Show Interface**: Click anywhere on the screen (when hidden) to show interface again
-   - **Keyboard Shortcut**: Press 'H' key to toggle interface visibility
+    - **Hide Interface**: Click the "Hide Interface" button to enter fullscreen mode
+    - **Show Interface**: Click anywhere on the screen (when hidden) to show interface again
+    - **Keyboard Shortcut**: Press 'H' key to toggle interface visibility
 
 3. **Performance Monitoring**: FPS counter is displayed in bottom-left corner
 
 ## Technical Details
 
 ### WebGL Implementation
+
 - **Rendering Engine**: [REGL](https://github.com/regl-project/regl)
 - **Shaders**: Custom vertex and fragment shaders for authentic XMB effects
 - **Performance**: Adaptive resolution scaling based on device capabilities
 - **Compatibility**: WebGL2 with WebGL1 fallback
 
 ### Wave Physics
+
 - **Noise Functions**: Authentic XMB noise patterns from original PS3 code
 - **Animation**: Time-based wave displacement with flowing surface details
 - **Particles**: Surface-following sparkle effects with opacity variance
 
 ### Browser Support
+
 - Chrome 51+
 - Firefox 51+
 - Safari 10+
@@ -113,7 +120,9 @@ npm run start
 ## Customization
 
 ### Color Themes
+
 The project includes the original PS3 color themes, but only static ones, not the actual gradients and Day/Night cycles (issue to resolve in the future, PR's welcome!):
+
 - **Sapphire** (Default): `[37, 89, 179]` - Original XMB blue
 - **Emerald**: `[20, 101, 50]` - Deep green
 - **Ruby**: `[116, 15, 48]` - Rich red
@@ -124,6 +133,7 @@ The project includes the original PS3 color themes, but only static ones, not th
 - **Silk**: `[104, 107, 108]` - Silver gray
 
 ### Adding Custom Colors
+
 Edit the color palette in `waves/waves-controller.js` within the `addColorSelector()` method:
 
 ```javascript

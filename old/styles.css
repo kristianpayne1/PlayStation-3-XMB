@@ -7,7 +7,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     background: #000;
     color: white;
     overflow: hidden;
@@ -47,8 +47,12 @@ body {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* Waves Background */
@@ -100,7 +104,12 @@ body {
     right: 0;
     width: 450px;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.4) 20%, rgba(0, 0, 0, 0.7) 100%);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(0, 0, 0, 0.4) 20%,
+        rgba(0, 0, 0, 0.7) 100%
+    );
     padding: 40px;
     z-index: 30;
     overflow-y: auto;
@@ -408,11 +417,11 @@ body {
         width: 400px;
         padding: 30px;
     }
-    
+
     #info-title {
         font-size: 22px;
     }
-    
+
     #current-time {
         font-size: 24px;
     }
@@ -424,20 +433,20 @@ body {
         padding: 25px;
         gap: 25px;
     }
-    
+
     .ps-logo-container {
         top: 20px;
         left: 20px;
     }
-    
+
     #info-title {
         font-size: 20px;
     }
-    
+
     #current-time {
         font-size: 22px;
     }
-    
+
     #current-date {
         font-size: 12px;
     }
@@ -450,11 +459,11 @@ body {
         background: rgba(0, 0, 0, 0.8);
         gap: 20px;
     }
-    
+
     .datetime-section {
         align-items: center;
     }
-    
+
     .settings-section {
         padding: 20px;
     }
@@ -469,4 +478,3 @@ body {
         padding: 10px 16px;
     }
 }
-

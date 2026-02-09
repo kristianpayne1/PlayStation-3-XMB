@@ -3,11 +3,11 @@
 
 // Shared shader functions to avoid duplication
 const SHADER_COMMON = {
-  hash: `
+    hash: `
     float hash(float n) { return fract(sin(n) * 1e4); }
     float hash(vec2 p) { return fract(1e4 * sin(17. * p.x + p.y * .1) * (.1 + abs(sin(p.y * 13. + p.x)))); }`,
-  
-  noise: `
+
+    noise: `
     float noise(float x) {
       float i = floor(x), f = fract(x), u = f * f * (3. - 2. * f);
       return mix(hash(i), hash(i + 1.), u);
@@ -29,22 +29,22 @@ const SHADER_COMMON = {
         mix(mix(hash(n + dot(step, vec3(0, 0, 1))), hash(n + dot(step, vec3(1, 0, 1))), u.x),
             mix(hash(n + dot(step, vec3(0, 1, 1))), hash(n + dot(step, vec3(1, 1, 1))), u.x), u.y), u.z);
     }`,
-  
-  xmbNoise: `float xmbNoise(vec3 x) { return cos(x.z * 4.) * cos(x.z + uTime / 10. + x.x); }`
+
+    xmbNoise: `float xmbNoise(vec3 x) { return cos(x.z * 4.) * cos(x.z + uTime / 10. + x.x); }`,
 };
 
 export function getShaders(isWebGL2) {
-  const version = isWebGL2 ? "#version 300 es\n" : "";
-  const attr = isWebGL2 ? "in" : "attribute";
-  const vary = isWebGL2 ? "out" : "varying";
-  const varyIn = isWebGL2 ? "in" : "varying";
-  const fragOut = isWebGL2 ? "out vec4 fragColor;\n" : "";
-  const texture = isWebGL2 ? "" : "2D";
-  const fragColor = isWebGL2 ? "fragColor" : "gl_FragColor";
+    const version = isWebGL2 ? "#version 300 es\n" : "";
+    const attr = isWebGL2 ? "in" : "attribute";
+    const vary = isWebGL2 ? "out" : "varying";
+    const varyIn = isWebGL2 ? "in" : "varying";
+    const fragOut = isWebGL2 ? "out vec4 fragColor;\n" : "";
+    const texture = isWebGL2 ? "" : "2D";
+    const fragColor = isWebGL2 ? "fragColor" : "gl_FragColor";
 
-  return {
-    background: {
-      vert: `${version}precision highp float;
+    return {
+        background: {
+            vert: `${version}precision highp float;
         ${attr} vec2 position;
         uniform vec2 u_resolution;
         ${vary} vec2 v_pos;
@@ -54,7 +54,7 @@ export function getShaders(isWebGL2) {
           v_gradient = 1.0 - position.y * 0.625;
           gl_Position = vec4(position, 0.0, 1.0);
         }`,
-      frag: `${version}precision highp float;
+            frag: `${version}precision highp float;
         uniform vec3 u_color;
         uniform sampler2D u_bayerTexture;
         ${varyIn} vec2 v_pos;
@@ -67,10 +67,10 @@ export function getShaders(isWebGL2) {
             float(diff.r < threshold), float(diff.g < threshold), float(diff.b < threshold)
           ) / 255.0;
           ${fragColor} = vec4(dithered, 1.0);
-        }`
-    },
-    flow: {
-      vert: `${version}precision highp float;
+        }`,
+        },
+        flow: {
+            vert: `${version}precision highp float;
         ${attr} vec2 position;
         uniform float uTime, ratio, flowSpeed, damping, tension, length, spacing, perturbation;
         uniform vec3 ffdScale1, ffdScale2, ffdOffset;
@@ -93,7 +93,7 @@ export function getShaders(isWebGL2) {
           p.y -= waveHeight; p.z -= noise(p2 * 8.) / 12.;
           gl_Position = vec4(p, 1.); vUv = (position + 1.) / 2.; vPosition = p;
         }`,
-      frag: `${version}precision lowp float;
+            frag: `${version}precision lowp float;
         uniform float opacity, brightness;
         ${varyIn} vec3 vPosition;
         ${fragOut}
@@ -102,10 +102,10 @@ export function getShaders(isWebGL2) {
           vec3 N = normalize(cross(X, Y));
           float F = 0.5 * pow(1. + dot(vec3(0., 0., -1.), N), 4.);
           ${fragColor} = vec4(vec3(1.), F * opacity * brightness);
-        }`
-    },
-    particle: {
-      vert: `${version}precision highp float;
+        }`,
+        },
+        particle: {
+            vert: `${version}precision highp float;
         ${attr} vec3 seed;
         uniform float uTime, ratio, flowSpeed, emitVelMin, emitVelMul, emitVelVar, emitConeAngle, emitNegProb;
         uniform float agingSpeed, agingVariance, friction, gravity, windScale, brownianScale;
@@ -132,7 +132,7 @@ export function getShaders(isWebGL2) {
           alpha = opacityVar * opacityVar * (1.0 - age);
           gl_Position = vec4(x, y, 0., 1.);
         }`,
-      frag: `${version}precision lowp float;
+            frag: `${version}precision lowp float;
         uniform float particleOpacity;
         ${varyIn} float alpha;
         ${fragOut}
@@ -140,7 +140,7 @@ export function getShaders(isWebGL2) {
           vec2 cxy = gl_PointCoord * 2. - 1.;
           float sparkle = max(0., 1. - dot(cxy, cxy));
           ${fragColor} = vec4(vec3(alpha * particleOpacity * sparkle), 1.);
-        }`
-    }
-  };
-} 
+        }`,
+        },
+    };
+}
