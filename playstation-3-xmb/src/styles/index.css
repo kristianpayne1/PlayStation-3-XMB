@@ -9,3 +9,14 @@ div#root {
 canvas {
     touch-action: none;
 }
+
+/* Fullscreen XMB-like backdrop */
+.xmb-bg {
+  --bg-top: #0E2143;     /* darker top */
+  --bg-bottom: #3C90FF;  /* brighter bottom */
+
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: linear-gradient(to bottom, var(--bg-top) 0%, var(--bg-bottom) 100%);
+}

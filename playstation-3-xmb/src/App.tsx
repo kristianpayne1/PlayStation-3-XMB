@@ -3,7 +3,7 @@ import Wave from "./components/Wave";
 import { OrbitControls } from "@react-three/drei";
 
 function App() {
-    return <Canvas>
+    return <Canvas className="xmb-bg">
         <Wave />
         <OrbitControls />
     </Canvas>;
