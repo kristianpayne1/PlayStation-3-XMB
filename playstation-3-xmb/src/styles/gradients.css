@@ -1,0 +1,288 @@
+/* Auto-generated from old/gradients/ps3-xmb-gradients.json */
+/* Note: Many extracted linear gradients had all stops at 0.5, so stops were evenly redistributed. */
+/* Note: april_rgb is type=texture in source GLSL; class below is a CSS approximation. */
+
+.xmb-gradient-january-night {
+  background: linear-gradient(
+    215.21deg,
+    rgb(21 21 21) 0.00%,
+    rgb(25 25 25) 20.00%,
+    rgb(82 82 82) 40.00%,
+    rgb(83 83 83) 60.00%,
+    rgb(157 157 157) 80.00%,
+    rgb(183 183 183) 100.00%
+  );
+}
+
+.xmb-gradient-february-night {
+  background: linear-gradient(
+    141.87deg,
+    rgb(21 24 13) 0.00%,
+    rgb(24 25 17) 20.00%,
+    rgb(86 79 51) 40.00%,
+    rgb(87 80 52) 60.00%,
+    rgb(158 151 92) 80.00%,
+    rgb(183 174 115) 100.00%
+  );
+}
+
+.xmb-gradient-march-night {
+  background: linear-gradient(
+    159.72deg,
+    rgb(18 19 11) 0.00%,
+    rgb(19 22 14) 20.00%,
+    rgb(69 76 50) 40.00%,
+    rgb(71 78 53) 60.00%,
+    rgb(131 148 97) 80.00%,
+    rgb(146 165 109) 100.00%
+  );
+}
+
+.xmb-gradient-april-night {
+  background: linear-gradient(
+    175.83deg,
+    rgb(19 15 16) 0.00%,
+    rgb(33 28 30) 20.00%,
+    rgb(109 87 90) 40.00%,
+    rgb(109 87 91) 60.00%,
+    rgb(183 150 157) 80.00%,
+    rgb(202 167 173) 100.00%
+  );
+}
+
+.xmb-gradient-may-night {
+  background: linear-gradient(
+    135.00deg,
+    rgb(16 35 13) 0.00%,
+    rgb(23 42 22) 20.00%,
+    rgb(28 50 28) 40.00%,
+    rgb(25 44 24) 60.00%,
+    rgb(30 72 31) 80.00%,
+    rgb(35 76 36) 100.00%
+  );
+}
+
+.xmb-gradient-june-night {
+  background: linear-gradient(
+    156.26deg,
+    rgb(8 10 9) 0.00%,
+    rgb(24 21 27) 20.00%,
+    rgb(90 73 105) 40.00%,
+    rgb(91 73 104) 60.00%,
+    rgb(178 138 191) 80.00%,
+    rgb(200 155 212) 100.00%
+  );
+}
+
+.xmb-gradient-july-night {
+  background: linear-gradient(
+    135.00deg,
+    rgb(14 20 20) 0.00%,
+    rgb(18 25 26) 20.00%,
+    rgb(17 57 56) 40.00%,
+    rgb(15 50 47) 60.00%,
+    rgb(10 81 77) 80.00%,
+    rgb(14 76 73) 100.00%
+  );
+}
+
+.xmb-gradient-august-night {
+  background: linear-gradient(
+    225.00deg,
+    rgb(0 2 27) 0.00%,
+    rgb(2 0 49) 20.00%,
+    rgb(1 43 94) 40.00%,
+    rgb(1 59 99) 60.00%,
+    rgb(3 127 147) 80.00%,
+    rgb(2 137 156) 100.00%
+  );
+}
+
+.xmb-gradient-september-night {
+  background: linear-gradient(
+    225.00deg,
+    rgb(25 0 29) 0.00%,
+    rgb(31 0 39) 20.00%,
+    rgb(57 0 69) 40.00%,
+    rgb(65 0 79) 60.00%,
+    rgb(96 0 125) 80.00%,
+    rgb(106 1 143) 100.00%
+  );
+}
+
+.xmb-gradient-october-night {
+  background: linear-gradient(
+    165.14deg,
+    rgb(7 0 3) 0.00%,
+    rgb(15 7 0) 20.00%,
+    rgb(85 51 0) 40.00%,
+    rgb(87 53 0) 60.00%,
+    rgb(186 120 5) 80.00%,
+    rgb(213 147 1) 100.00%
+  );
+}
+
+.xmb-gradient-november-night {
+  background: linear-gradient(
+    90.00deg,
+    rgb(21 16 13) 0.00%,
+    rgb(29 24 17) 20.00%,
+    rgb(75 52 25) 40.00%,
+    rgb(75 52 25) 60.00%,
+    rgb(114 73 27) 80.00%,
+    rgb(127 86 42) 100.00%
+  );
+}
+
+.xmb-gradient-december-night {
+  background: linear-gradient(
+    135.00deg,
+    rgb(16 16 14) 0.00%,
+    rgb(16 13 10) 20.00%,
+    rgb(51 29 25) 40.00%,
+    rgb(39 20 21) 60.00%,
+    rgb(76 39 30) 80.00%,
+    rgb(64 35 27) 100.00%
+  );
+}
+
+.xmb-gradient-january-rgb {
+  background: linear-gradient(
+    0deg,
+    rgb(184 184 184) 0.00%,
+    rgb(205 205 205) 20.00%,
+    rgb(193 193 193) 40.00%,
+    rgb(181 181 181) 60.00%,
+    rgb(194 194 194) 80.00%,
+    rgb(230 230 230) 100.00%
+  );
+}
+
+.xmb-gradient-february-rgb {
+  background: linear-gradient(
+    0deg,
+    rgb(213 221 50) 0.00%,
+    rgb(218 209 38) 20.00%,
+    rgb(206 169 17) 40.00%,
+    rgb(202 162 12) 60.00%,
+    rgb(204 167 17) 80.00%,
+    rgb(209 191 33) 100.00%
+  );
+}
+
+.xmb-gradient-march-rgb {
+  background: linear-gradient(
+    90.00deg,
+    rgb(91 159 24) 0.00%,
+    rgb(114 183 23) 20.00%,
+    rgb(111 173 26) 40.00%,
+    rgb(106 170 25) 60.00%,
+    rgb(124 189 35) 80.00%,
+    rgb(129 192 41) 100.00%
+  );
+}
+
+.xmb-gradient-april-rgb {
+  /* Approximates source texture sampling with a simple linear gradient. */
+  background: linear-gradient(
+    180deg,
+    rgb(51 51 77) 0.00%,
+    rgb(26 26 51) 100.00%
+  );
+}
+
+.xmb-gradient-may-rgb {
+  background: linear-gradient(
+    90.00deg,
+    rgb(22 151 24) 0.00%,
+    rgb(21 143 22) 20.00%,
+    rgb(23 139 24) 40.00%,
+    rgb(21 126 22) 60.00%,
+    rgb(22 118 21) 80.00%,
+    rgb(18 108 20) 100.00%
+  );
+}
+
+.xmb-gradient-june-rgb {
+  background: linear-gradient(
+    90.00deg,
+    rgb(132 93 218) 0.00%,
+    rgb(137 94 216) 20.00%,
+    rgb(160 106 220) 40.00%,
+    rgb(148 97 202) 60.00%,
+    rgb(159 93 182) 80.00%,
+    rgb(145 83 158) 100.00%
+  );
+}
+
+.xmb-gradient-july-rgb {
+  background: linear-gradient(
+    90.00deg,
+    rgb(13 232 228) 0.00%,
+    rgb(8 222 220) 20.00%,
+    rgb(5 210 202) 40.00%,
+    rgb(0 197 187) 60.00%,
+    rgb(0 185 162) 80.00%,
+    rgb(1 171 144) 100.00%
+  );
+}
+
+.xmb-gradient-august-rgb {
+  background: linear-gradient(
+    225.00deg,
+    rgb(10 176 224) 0.00%,
+    rgb(26 175 217) 20.00%,
+    rgb(10 116 185) 40.00%,
+    rgb(11 94 182) 60.00%,
+    rgb(0 19 107) 80.00%,
+    rgb(0 7 79) 100.00%
+  );
+}
+
+.xmb-gradient-september-rgb {
+  background: linear-gradient(
+    90.00deg,
+    rgb(171 66 195) 0.00%,
+    rgb(182 69 202) 20.00%,
+    rgb(174 62 188) 40.00%,
+    rgb(185 72 196) 60.00%,
+    rgb(185 75 196) 80.00%,
+    rgb(202 93 220) 100.00%
+  );
+}
+
+.xmb-gradient-october-rgb {
+  background: linear-gradient(
+    90.00deg,
+    rgb(227 178 23) 0.00%,
+    rgb(227 173 6) 20.00%,
+    rgb(225 163 8) 40.00%,
+    rgb(224 164 8) 60.00%,
+    rgb(225 168 12) 80.00%,
+    rgb(226 176 15) 100.00%
+  );
+}
+
+.xmb-gradient-november-rgb {
+  background: linear-gradient(
+    90.00deg,
+    rgb(152 115 45) 0.00%,
+    rgb(151 112 45) 20.00%,
+    rgb(134 91 31) 40.00%,
+    rgb(134 91 31) 60.00%,
+    rgb(121 75 24) 80.00%,
+    rgb(119 73 22) 100.00%
+  );
+}
+
+.xmb-gradient-december-rgb {
+  background: linear-gradient(
+    90.00deg,
+    rgb(229 67 44) 0.00%,
+    rgb(231 67 42) 20.00%,
+    rgb(228 66 45) 40.00%,
+    rgb(225 64 43) 60.00%,
+    rgb(224 65 44) 80.00%,
+    rgb(213 66 46) 100.00%
+  );
+}
