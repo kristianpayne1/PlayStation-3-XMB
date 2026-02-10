@@ -2,6 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { Theme } from "@radix-ui/themes";
 import App from "./App";
+import { ControlsProvider } from "./hooks/useControls";
 
 import "@radix-ui/themes/styles.css";
 import "./styles/index.css";
@@ -14,8 +15,10 @@ if (!rootElement) {
 
 createRoot(rootElement).render(
     <StrictMode>
-        <Theme className="h-screen" appearance="dark">
-            <App />
+        <Theme className="h-screen" appearance="dark" accentColor="gray">
+            <ControlsProvider>
+                <App />
+            </ControlsProvider>
         </Theme>
     </StrictMode>,
 );
