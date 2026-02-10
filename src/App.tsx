@@ -7,8 +7,6 @@ import useControls from "./hooks/useControls";
 function App() {
     const { theme } = useControls();
 
-    console.log(theme);
-
     return (
         <>
             <main className="h-screen">

@@ -34,7 +34,7 @@ function Control({ label = "", children }: ControlProps) {
 }
 
 function Controls() {
-    const { setTheme } = useControls();
+    const { theme, setTheme } = useControls();
 
     return (
         <Card>
@@ -45,8 +45,11 @@ function Controls() {
                 <Control label="Color Theme">
                     <DropdownMenu.Root>
                         <DropdownMenu.Trigger>
-                            <Button variant="soft" style={{ justifyContent: "space-between" }}>
-                                Themes
+                            <Button
+                                variant="soft"
+                                style={{ justifyContent: "space-between" }}
+                            >
+                                {toTitleCase(theme)}
                                 <DropdownMenu.TriggerIcon />
                             </Button>
                         </DropdownMenu.Trigger>
