@@ -45,7 +45,7 @@ function Controls() {
                 <Control label="Color Theme">
                     <DropdownMenu.Root>
                         <DropdownMenu.Trigger>
-                            <Button variant="soft">
+                            <Button variant="soft" style={{ justifyContent: "space-between" }}>
                                 Themes
                                 <DropdownMenu.TriggerIcon />
                             </Button>
