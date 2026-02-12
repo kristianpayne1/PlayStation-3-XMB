@@ -11,7 +11,6 @@ uniform vec3 ffdScale1;
 uniform vec3 ffdScale2;
 uniform vec3 ffdOffset;
 
-varying vec2 vUv;
 varying vec3 vViewPosition;
 varying vec3 vNormalView;
 
@@ -96,7 +95,6 @@ void main() {
   vec4 worldPosition = modelMatrix * vec4(p, 1.0);
   vec4 mvPosition = viewMatrix * worldPosition;
 
-  vUv = uv;
   vViewPosition = -mvPosition.xyz;
   vNormalView = normalize(normalMatrix * nObj);
 
