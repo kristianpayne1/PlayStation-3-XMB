@@ -1,6 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import Wave from "./components/Wave";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, OrthographicCamera } from "@react-three/drei";
 import RightPanel from "./components/RightPanel";
 import useControls from "./hooks/useControls";
 

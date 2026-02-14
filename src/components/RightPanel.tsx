@@ -7,7 +7,7 @@ function Highlight({ children }: { children: React.ReactNode }) {
 
 function RightPanel() {
     return (
-        <div className="absolute right-0 top-0 h-screen w-115 bg-[linear-gradient(90deg,transparent,rgba(0,0,0,0.4)_20%,rgba(0,0,0,0.7)_100%)] max-[600px]:inset-0 max-[600px]:h-screen max-[600px]:w-screen max-[600px]:bg-none max-[600px]:bg-[rgba(0,0,0,0.7)]">
+        <div className="overflow-scroll absolute right-0 top-0 h-screen w-115 bg-[linear-gradient(90deg,transparent,rgba(0,0,0,0.4)_20%,rgba(0,0,0,0.7)_100%)] max-[600px]:inset-0 max-[600px]:h-screen max-[600px]:w-screen max-[600px]:bg-none max-[600px]:bg-[rgba(0,0,0,0.7)]">
             <Flex direction="column" gap="5" className="py-15 px-10">
                 <Heading>PlayStation 3 XMB Wave System</Heading>
                 <Text>

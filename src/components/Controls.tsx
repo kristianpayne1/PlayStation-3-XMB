@@ -1,4 +1,11 @@
-import { Button, Card, Flex, Heading, DropdownMenu } from "@radix-ui/themes";
+import {
+    Button,
+    Card,
+    Flex,
+    Heading,
+    DropdownMenu,
+    Slider,
+} from "@radix-ui/themes";
 import useControls from "../hooks/useControls";
 import type { Theme } from "../hooks/useControls";
 
@@ -33,14 +40,61 @@ function Control({ label = "", children }: ControlProps) {
     );
 }
 
+type SliderControlProps = {
+    label: string;
+    value: number;
+    min: number;
+    max: number;
+    step: number;
+    onChange: (value: number) => void;
+};
+
+function SliderControl({
+    label,
+    value,
+    min,
+    max,
+    step,
+    onChange,
+}: SliderControlProps) {
+    return (
+        <Control label={`${label}: ${value.toFixed(2)}`}>
+            <Slider
+                min={min}
+                max={max}
+                step={step}
+                value={[value]}
+                onValueChange={(nextValue) => onChange(nextValue[0] ?? min)}
+            />
+        </Control>
+    );
+}
+
 function Controls() {
-    const { theme, setTheme } = useControls();
+    const {
+        theme,
+        setTheme,
+        flowSpeed,
+        setFlowSpeed,
+        opacity,
+        setOpacity,
+        brightness,
+        setBrightness,
+        damping,
+        setDamping,
+        tension,
+        setTension,
+        length,
+        setLength,
+        perturbation,
+        setPerturbation,
+    } = useControls();
 
     return (
         <Card>
             <Flex direction="column" gap="5">
                 <Heading as="h2" size="4" align="center">
-                    Wave Configuration
+                    Configuration
                 </Heading>
                 <Control label="Color Theme">
                     <DropdownMenu.Root>
@@ -65,6 +119,62 @@ function Controls() {
                         </DropdownMenu.Content>
                     </DropdownMenu.Root>
                 </Control>
+                <SliderControl
+                    label="Flow Speed"
+                    value={flowSpeed}
+                    min={0}
+                    max={2}
+                    step={0.01}
+                    onChange={setFlowSpeed}
+                />
+                <SliderControl
+                    label="Opacity"
+                    value={opacity}
+                    min={0}
+                    max={1}
+                    step={0.01}
+                    onChange={setOpacity}
+                />
+                <SliderControl
+                    label="Brightness"
+                    value={brightness}
+                    min={0}
+                    max={1}
+                    step={0.01}
+                    onChange={setBrightness}
+                />
+                <SliderControl
+                    label="Damping"
+                    value={damping}
+                    min={0}
+                    max={1}
+                    step={0.01}
+                    onChange={setDamping}
+                />
+                <SliderControl
+                    label="Tension"
+                    value={tension}
+                    min={0}
+                    max={1}
+                    step={0.01}
+                    onChange={setTension}
+                />
+                <SliderControl
+                    label="Length"
+                    value={length}
+                    min={0}
+                    max={3}
+                    step={0.01}
+                    onChange={setLength}
+                />
+                <SliderControl
+                    label="Perturbation"
+                    value={perturbation}
+                    min={0}
+                    max={2}
+                    step={0.01}
+                    onChange={setPerturbation}
+                />
             </Flex>
         </Card>
     );
