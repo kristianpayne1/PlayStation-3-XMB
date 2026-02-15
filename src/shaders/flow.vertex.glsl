@@ -71,12 +71,13 @@ vec3 evalFlow(vec2 planePos) {
   p.z += cos(ffd2.z + uTime * flowSpeed) * 0.1;
 
   vec3 p2 = p;
-  p2.x = (p2.x - uTime * flowSpeed) / 4.0;
+  p2.x -= uTime * flowSpeed;
+  p2.x /= 4.0;
   p2.y -= uTime / 100.0;
   p2.z -= uTime / 10.0;
 
   float waveHeight = noise(p2 * 8.0) / 12.0 + cos(p.x * 2.0 - uTime / 2.0) / 5.0 - 0.1;
-  waveHeight *= (1.0 - clamp(damping, 0.0, 1.0));
+  waveHeight *= 1.0 - damping;
   waveHeight += tension * sin(p.x * length + uTime * flowSpeed) + perturbation * noise(p2 * spacing);
 
   p.y -= waveHeight;
@@ -98,5 +99,6 @@ void main() {
   vViewPosition = -mvPosition.xyz;
   vNormalView = normalize(normalMatrix * nObj);
 
-  gl_Position = projectionMatrix * mvPosition;
+  // gl_Position = projectionMatrix * mvPosition;
+  gl_Position = vec4(p, 1.0);
 }

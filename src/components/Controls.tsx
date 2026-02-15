@@ -91,92 +91,90 @@ function Controls() {
     } = useControls();
 
     return (
-        <Card>
-            <Flex direction="column" gap="5">
-                <Heading as="h2" size="4" align="center">
-                    Configuration
-                </Heading>
-                <Control label="Color Theme">
-                    <DropdownMenu.Root>
-                        <DropdownMenu.Trigger>
-                            <Button
-                                variant="soft"
-                                style={{ justifyContent: "space-between" }}
+        <Flex direction="column" gap="5">
+            <Heading as="h2" size="4" align="center">
+                Configuration
+            </Heading>
+            <Control label="Color Theme">
+                <DropdownMenu.Root>
+                    <DropdownMenu.Trigger>
+                        <Button
+                            variant="soft"
+                            style={{ justifyContent: "space-between" }}
+                        >
+                            {toTitleCase(theme)}
+                            <DropdownMenu.TriggerIcon />
+                        </Button>
+                    </DropdownMenu.Trigger>
+                    <DropdownMenu.Content>
+                        {themes.map((theme) => (
+                            <DropdownMenu.Item
+                                key={theme}
+                                onClick={() => setTheme(theme)}
                             >
                                 {toTitleCase(theme)}
-                                <DropdownMenu.TriggerIcon />
-                            </Button>
-                        </DropdownMenu.Trigger>
-                        <DropdownMenu.Content>
-                            {themes.map((theme) => (
-                                <DropdownMenu.Item
-                                    key={theme}
-                                    onClick={() => setTheme(theme)}
-                                >
-                                    {toTitleCase(theme)}
-                                </DropdownMenu.Item>
-                            ))}
-                        </DropdownMenu.Content>
-                    </DropdownMenu.Root>
-                </Control>
-                <SliderControl
-                    label="Flow Speed"
-                    value={flowSpeed}
-                    min={0}
-                    max={2}
-                    step={0.01}
-                    onChange={setFlowSpeed}
-                />
-                <SliderControl
-                    label="Opacity"
-                    value={opacity}
-                    min={0}
-                    max={1}
-                    step={0.01}
-                    onChange={setOpacity}
-                />
-                <SliderControl
-                    label="Brightness"
-                    value={brightness}
-                    min={0}
-                    max={1}
-                    step={0.01}
-                    onChange={setBrightness}
-                />
-                <SliderControl
-                    label="Damping"
-                    value={damping}
-                    min={0}
-                    max={1}
-                    step={0.01}
-                    onChange={setDamping}
-                />
-                <SliderControl
-                    label="Tension"
-                    value={tension}
-                    min={0}
-                    max={1}
-                    step={0.01}
-                    onChange={setTension}
-                />
-                <SliderControl
-                    label="Length"
-                    value={length}
-                    min={0}
-                    max={3}
-                    step={0.01}
-                    onChange={setLength}
-                />
-                <SliderControl
-                    label="Perturbation"
-                    value={perturbation}
-                    min={0}
-                    max={2}
-                    step={0.01}
-                    onChange={setPerturbation}
-                />
-            </Flex>
-        </Card>
+                            </DropdownMenu.Item>
+                        ))}
+                    </DropdownMenu.Content>
+                </DropdownMenu.Root>
+            </Control>
+            <SliderControl
+                label="Flow Speed"
+                value={flowSpeed}
+                min={0}
+                max={2}
+                step={0.01}
+                onChange={setFlowSpeed}
+            />
+            <SliderControl
+                label="Opacity"
+                value={opacity}
+                min={0}
+                max={1}
+                step={0.01}
+                onChange={setOpacity}
+            />
+            <SliderControl
+                label="Brightness"
+                value={brightness}
+                min={0}
+                max={1}
+                step={0.01}
+                onChange={setBrightness}
+            />
+            <SliderControl
+                label="Damping"
+                value={damping}
+                min={0}
+                max={1}
+                step={0.01}
+                onChange={setDamping}
+            />
+            <SliderControl
+                label="Tension"
+                value={tension}
+                min={0}
+                max={1}
+                step={0.01}
+                onChange={setTension}
+            />
+            <SliderControl
+                label="Length"
+                value={length}
+                min={0}
+                max={3}
+                step={0.01}
+                onChange={setLength}
+            />
+            <SliderControl
+                label="Perturbation"
+                value={perturbation}
+                min={0}
+                max={2}
+                step={0.01}
+                onChange={setPerturbation}
+            />
+        </Flex>
     );
 }
 
