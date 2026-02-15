@@ -80,14 +80,6 @@ function Controls() {
         setOpacity,
         brightness,
         setBrightness,
-        damping,
-        setDamping,
-        tension,
-        setTension,
-        length,
-        setLength,
-        perturbation,
-        setPerturbation,
     } = useControls();
 
     return (
@@ -141,38 +133,6 @@ function Controls() {
                 max={1}
                 step={0.01}
                 onChange={setBrightness}
-            />
-            <SliderControl
-                label="Damping"
-                value={damping}
-                min={0}
-                max={1}
-                step={0.01}
-                onChange={setDamping}
-            />
-            <SliderControl
-                label="Tension"
-                value={tension}
-                min={0}
-                max={1}
-                step={0.01}
-                onChange={setTension}
-            />
-            <SliderControl
-                label="Length"
-                value={length}
-                min={0}
-                max={3}
-                step={0.01}
-                onChange={setLength}
-            />
-            <SliderControl
-                label="Perturbation"
-                value={perturbation}
-                min={0}
-                max={2}
-                step={0.01}
-                onChange={setPerturbation}
             />
         </Flex>
     );

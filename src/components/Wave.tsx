@@ -15,28 +15,11 @@ type FlowUniformMaterial = Material & {
     flowSpeed: number;
     opacity: number;
     brightness: number;
-    damping: number;
-    tension: number;
-    length: number;
-    perturbation: number;
 };
 
-export default function Wave({ resolution = 128, ...meshProps }: WaveProps) {
+export default function Wave({ ...meshProps }: WaveProps) {
     const materialRef = useRef<FlowUniformMaterial | null>(null);
-    const {
-        flowSpeed,
-        opacity,
-        brightness,
-        damping,
-        tension,
-        length,
-        perturbation,
-    } = useControls();
-    const clampedResolution = useMemo(
-        () => Math.max(2, Math.floor(resolution)),
-        [resolution],
-    );
-    const segments = clampedResolution - 1;
+    const { flowSpeed, opacity, brightness } = useControls();
 
     useFrame((_, deltaTime) => {
         const material = materialRef.current;
@@ -46,19 +29,16 @@ export default function Wave({ resolution = 128, ...meshProps }: WaveProps) {
         material.flowSpeed = flowSpeed;
         material.opacity = opacity;
         material.brightness = brightness;
-        material.damping = damping;
-        material.tension = tension;
-        material.length = length;
-        material.perturbation = perturbation;
     });
 
     return (
         <mesh {...meshProps}>
-            <planeGeometry args={[8, 2, segments, segments]} />
+            <planeGeometry args={[8, 2]} />
             <flowMaterial
                 ref={materialRef}
                 side={DoubleSide}
                 transparent
+                blending={AdditiveBlending}
                 depthWrite={false}
             />
         </mesh>

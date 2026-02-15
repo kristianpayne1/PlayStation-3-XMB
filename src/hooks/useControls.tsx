@@ -25,33 +25,17 @@ export type ControlsContext = {
     setOpacity: Dispatch<SetStateAction<number>>;
     brightness: number;
     setBrightness: Dispatch<SetStateAction<number>>;
-    damping: number;
-    setDamping: Dispatch<SetStateAction<number>>;
-    tension: number;
-    setTension: Dispatch<SetStateAction<number>>;
-    length: number;
-    setLength: Dispatch<SetStateAction<number>>;
-    perturbation: number;
-    setPerturbation: Dispatch<SetStateAction<number>>;
 };
 
 const contextDefaults: ControlsContext = {
     theme: "original",
     setTheme: () => {},
-    flowSpeed: 0.4,
+    flowSpeed: 1.0,
     setFlowSpeed: () => {},
-    opacity: 0.25,
+    opacity: 0.5,
     setOpacity: () => {},
     brightness: 1,
     setBrightness: () => {},
-    damping: 1,
-    setDamping: () => {},
-    tension: 0.25,
-    setTension: () => {},
-    length: 1,
-    setLength: () => {},
-    perturbation: 0,
-    setPerturbation: () => {},
 };
 
 const context = createContext<ControlsContext | null>(null);
@@ -75,12 +59,6 @@ export function ControlsProvider({ children }: { children: React.ReactNode }) {
     const [brightness, setBrightness] = useState<number>(
         contextDefaults.brightness,
     );
-    const [damping, setDamping] = useState<number>(contextDefaults.damping);
-    const [tension, setTension] = useState<number>(contextDefaults.tension);
-    const [length, setLength] = useState<number>(contextDefaults.length);
-    const [perturbation, setPerturbation] = useState<number>(
-        contextDefaults.perturbation,
-    );
 
     return (
         <context.Provider
@@ -93,14 +71,6 @@ export function ControlsProvider({ children }: { children: React.ReactNode }) {
                 setOpacity,
                 brightness,
                 setBrightness,
-                damping,
-                setDamping,
-                tension,
-                setTension,
-                length,
-                setLength,
-                perturbation,
-                setPerturbation,
             }}
         >
             {children}
