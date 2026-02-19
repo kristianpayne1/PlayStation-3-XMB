@@ -5,14 +5,14 @@ import useControls from "./hooks/useControls";
 import Camera from "./components/Camera";
 
 function App() {
-    const { theme, length, opacity } = useControls();
+    const { theme, resolution, length, opacity } = useControls();
 
     return (
         <>
             <main className="h-screen">
                 <Canvas className={`xmb-theme-bg-${theme}`}>
                     <Camera />
-                    <Wave {...{ length, opacity }} />
+                    <Wave {...{ resolution, length, opacity }} />
                 </Canvas>
             </main>
             <RightPanel />

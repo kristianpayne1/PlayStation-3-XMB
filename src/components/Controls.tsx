@@ -1,11 +1,4 @@
-import {
-    Button,
-    Flex,
-    Heading,
-    DropdownMenu,
-    Slider,
-    Switch,
-} from "@radix-ui/themes";
+import { Button, Flex, Heading, DropdownMenu, Slider } from "@radix-ui/themes";
 import useControls from "../hooks/useControls";
 import type { Theme } from "../hooks/useControls";
 
@@ -57,8 +50,9 @@ function SliderControl({
     step,
     onChange,
 }: SliderControlProps) {
+    const float = value % 1 !== 0 || step % 1 !== 0;
     return (
-        <Control label={`${label}: ${value.toFixed(2)}`}>
+        <Control label={`${label}: ${float ? value.toFixed(2) : value}`}>
             <Slider
                 min={min}
                 max={max}
@@ -74,6 +68,8 @@ function Controls() {
     const {
         theme,
         setTheme,
+        resolution,
+        setResolution,
         length,
         setLength,
         flowSpeed,
@@ -110,6 +106,14 @@ function Controls() {
                     </DropdownMenu.Content>
                 </DropdownMenu.Root>
             </Control>
+            <SliderControl
+                label="Resolution"
+                value={resolution}
+                min={1}
+                max={256}
+                step={1}
+                onChange={setResolution}
+            />
             <SliderControl
                 label="Length"
                 value={length}

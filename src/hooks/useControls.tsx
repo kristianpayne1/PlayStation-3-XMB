@@ -19,6 +19,8 @@ export type Theme =
 export type ControlsContext = {
     theme: Theme;
     setTheme: Dispatch<SetStateAction<Theme>>;
+    resolution: number;
+    setResolution: Dispatch<SetStateAction<number>>;
     length: number;
     setLength: Dispatch<SetStateAction<number>>;
     flowSpeed: number;
@@ -30,6 +32,8 @@ export type ControlsContext = {
 const contextDefaults: ControlsContext = {
     theme: "original",
     setTheme: () => {},
+    resolution: 128,
+    setResolution: () => {},
     length: 1.0,
     setLength: () => {},
     flowSpeed: 1.0,
@@ -52,6 +56,9 @@ function useControls() {
 
 export function ControlsProvider({ children }: { children: React.ReactNode }) {
     const [theme, setTheme] = useState<Theme>(contextDefaults.theme);
+    const [resolution, setResolution] = useState<number>(
+        contextDefaults.resolution,
+    );
     const [length, setLength] = useState<number>(contextDefaults.length);
     const [flowSpeed, setFlowSpeed] = useState<number>(
         contextDefaults.flowSpeed,
@@ -63,6 +70,8 @@ export function ControlsProvider({ children }: { children: React.ReactNode }) {
             value={{
                 theme,
                 setTheme,
+                resolution,
+                setResolution,
                 length,
                 setLength,
                 flowSpeed,
