@@ -1,13 +1,14 @@
 import { useRef, type ComponentProps } from "react";
-import { extend, useFrame, useThree } from "@react-three/fiber";
+import { extend, useFrame } from "@react-three/fiber";
 import { DoubleSide, Material } from "three";
 import FlowMaterial from "../materials/FlowMaterial";
-import useControls from "../hooks/useControls";
 
 extend({ FlowMaterial });
 
 type WaveProps = ComponentProps<"mesh"> & {
     resolution?: number;
+    opacity?: number;
+    length?: number;
 };
 
 type FlowUniformMaterial = Material & {
@@ -15,9 +16,13 @@ type FlowUniformMaterial = Material & {
     uAlpha: number;
 };
 
-export default function Wave({ resolution = 128, ...meshProps }: WaveProps) {
+export default function Wave({
+    resolution = 128,
+    opacity = 0.5,
+    length = 1,
+    ...meshProps
+}: WaveProps) {
     const materialRef = useRef<FlowUniformMaterial | null>(null);
-    const { length, opacity } = useControls();
 
     useFrame((_, deltaTime) => {
         const material = materialRef.current;
