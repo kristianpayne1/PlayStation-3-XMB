@@ -1,10 +1,10 @@
 import {
     Button,
-    Card,
     Flex,
     Heading,
     DropdownMenu,
     Slider,
+    Switch,
 } from "@radix-ui/themes";
 import useControls from "../hooks/useControls";
 import type { Theme } from "../hooks/useControls";
@@ -74,6 +74,8 @@ function Controls() {
     const {
         theme,
         setTheme,
+        length,
+        setLength,
         flowSpeed,
         setFlowSpeed,
         opacity,
@@ -110,6 +112,14 @@ function Controls() {
                     </DropdownMenu.Content>
                 </DropdownMenu.Root>
             </Control>
+            <SliderControl
+                label="Length"
+                value={length}
+                min={0}
+                max={5}
+                step={0.01}
+                onChange={setLength}
+            />
             <SliderControl
                 label="Flow Speed"
                 value={flowSpeed}

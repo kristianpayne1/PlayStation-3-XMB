@@ -7,7 +7,7 @@ const CAMERA_ZOOM = 2;
 export default function Camera() {
     const { size } = useThree();
 
-    const aspect = useMemo(() => size.width / size.height || 1, [size]);
+    const aspect = useMemo(() => size.width / size.height || 1, []);
 
     return (
         <OrthographicCamera

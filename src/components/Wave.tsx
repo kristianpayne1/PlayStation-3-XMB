@@ -1,7 +1,8 @@
 import { useRef, type ComponentProps } from "react";
-import { extend, useFrame } from "@react-three/fiber";
+import { extend, useFrame, useThree } from "@react-three/fiber";
 import { DoubleSide, Material } from "three";
 import FlowMaterial from "../materials/FlowMaterial";
+import useControls from "../hooks/useControls";
 
 extend({ FlowMaterial });
 
@@ -15,6 +16,7 @@ type FlowUniformMaterial = Material & {
 
 export default function Wave({ resolution = 128, ...meshProps }: WaveProps) {
     const materialRef = useRef<FlowUniformMaterial | null>(null);
+    const { length } = useControls();
 
     useFrame((_, deltaTime) => {
         const material = materialRef.current;
@@ -24,7 +26,7 @@ export default function Wave({ resolution = 128, ...meshProps }: WaveProps) {
     });
 
     return (
-        <mesh {...meshProps}>
+        <mesh {...meshProps} scale={[length, 1, 1]}>
             <planeGeometry args={[2, 2, resolution, resolution]} />
             <flowMaterial
                 ref={materialRef}

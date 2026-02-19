@@ -3,7 +3,7 @@ import Controls from "./Controls";
 
 function RightPanel() {
     return (
-        <div className="overflow-scroll absolute right-5 top-5 h-screen w-100">
+        <div className="overflow-scroll absolute right-5 top-5 w-100">
             <Card>
                 <Flex direction="column" gap="5">
                     <Controls />
