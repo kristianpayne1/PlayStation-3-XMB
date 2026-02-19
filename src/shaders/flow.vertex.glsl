@@ -1,11 +1,11 @@
 precision highp float;
 
+uniform float uTime;
+
+varying vec3 vPosition;
+
 float hash(float n) {
   return fract(sin(n) * 1e4);
-}
-
-float hash(vec2 p) {
-  return fract(1e4 * sin(17.0 * p.x + p.y * 0.1) * (0.1 + abs(sin(p.y * 13.0 + p.x))));
 }
 
 float noise(vec3 x) {
@@ -30,10 +30,6 @@ float noise(vec3 x) {
     u.z
   );
 }
-
-uniform float uTime;
-
-varying vec3 vPosition;
 
 float xmbNoise(vec3 x) {
   return cos(x.z * 4.0) * cos(x.z + uTime / 10.0 + x.x);

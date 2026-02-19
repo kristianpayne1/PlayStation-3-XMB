@@ -80,8 +80,6 @@ function Controls() {
         setFlowSpeed,
         opacity,
         setOpacity,
-        brightness,
-        setBrightness,
     } = useControls();
 
     return (
@@ -121,28 +119,12 @@ function Controls() {
                 onChange={setLength}
             />
             <SliderControl
-                label="Flow Speed"
-                value={flowSpeed}
-                min={0}
-                max={2}
-                step={0.01}
-                onChange={setFlowSpeed}
-            />
-            <SliderControl
                 label="Opacity"
                 value={opacity}
                 min={0}
                 max={1}
                 step={0.01}
                 onChange={setOpacity}
-            />
-            <SliderControl
-                label="Brightness"
-                value={brightness}
-                min={0}
-                max={1}
-                step={0.01}
-                onChange={setBrightness}
             />
         </Flex>
     );

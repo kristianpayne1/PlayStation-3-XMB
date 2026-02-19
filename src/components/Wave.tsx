@@ -12,11 +12,12 @@ type WaveProps = ComponentProps<"mesh"> & {
 
 type FlowUniformMaterial = Material & {
     uTime: number;
+    uAlpha: number;
 };
 
 export default function Wave({ resolution = 128, ...meshProps }: WaveProps) {
     const materialRef = useRef<FlowUniformMaterial | null>(null);
-    const { length } = useControls();
+    const { length, opacity } = useControls();
 
     useFrame((_, deltaTime) => {
         const material = materialRef.current;
@@ -33,6 +34,7 @@ export default function Wave({ resolution = 128, ...meshProps }: WaveProps) {
                 side={DoubleSide}
                 transparent
                 depthTest={false}
+                uAlpha={opacity}
             />
         </mesh>
     );

@@ -25,8 +25,6 @@ export type ControlsContext = {
     setFlowSpeed: Dispatch<SetStateAction<number>>;
     opacity: number;
     setOpacity: Dispatch<SetStateAction<number>>;
-    brightness: number;
-    setBrightness: Dispatch<SetStateAction<number>>;
 };
 
 const contextDefaults: ControlsContext = {
@@ -38,8 +36,6 @@ const contextDefaults: ControlsContext = {
     setFlowSpeed: () => {},
     opacity: 0.5,
     setOpacity: () => {},
-    brightness: 1,
-    setBrightness: () => {},
 };
 
 const context = createContext<ControlsContext | null>(null);
@@ -61,9 +57,6 @@ export function ControlsProvider({ children }: { children: React.ReactNode }) {
         contextDefaults.flowSpeed,
     );
     const [opacity, setOpacity] = useState<number>(contextDefaults.opacity);
-    const [brightness, setBrightness] = useState<number>(
-        contextDefaults.brightness,
-    );
 
     return (
         <context.Provider
@@ -76,8 +69,6 @@ export function ControlsProvider({ children }: { children: React.ReactNode }) {
                 setFlowSpeed,
                 opacity,
                 setOpacity,
-                brightness,
-                setBrightness,
             }}
         >
             {children}
