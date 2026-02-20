@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { Box, Button, DropdownMenu, Flex, TextField } from "@radix-ui/themes";
 
 type ColorPickerProps = {
@@ -10,7 +10,7 @@ type ColorPickerProps = {
 const hexPattern = /^#?[0-9a-fA-F]{6}$|^#?[0-9a-fA-F]{3}$/;
 
 const normalizeHex = (value: string) =>
-    (value.startsWith("#") ? value : `#${value}`).toLowerCase();
+    (value.startsWith("#") ? value.toUpperCase() : `#${value}`).toUpperCase();
 
 export default function ColorPicker({ color, onChange }: ColorPickerProps) {
     const [hexColor, setHexColor] = useState(normalizeHex(color));
