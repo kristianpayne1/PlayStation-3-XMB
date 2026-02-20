@@ -17,6 +17,8 @@ export type Theme =
     | "december";
 
 export type ControlsContext = {
+    open: boolean;
+    setOpen: Dispatch<SetStateAction<boolean>>;
     theme: Theme;
     setTheme: Dispatch<SetStateAction<Theme>>;
     resolution: number;
@@ -30,6 +32,8 @@ export type ControlsContext = {
 };
 
 const contextDefaults: ControlsContext = {
+    open: true,
+    setOpen: () => {},
     theme: "original",
     setTheme: () => {},
     resolution: 128,
@@ -55,6 +59,7 @@ function useControls() {
 }
 
 export function ControlsProvider({ children }: { children: React.ReactNode }) {
+    const [open, setOpen] = useState<boolean>(contextDefaults.open);
     const [theme, setTheme] = useState<Theme>(contextDefaults.theme);
     const [resolution, setResolution] = useState<number>(
         contextDefaults.resolution,
@@ -68,6 +73,8 @@ export function ControlsProvider({ children }: { children: React.ReactNode }) {
     return (
         <context.Provider
             value={{
+                open,
+                setOpen,
                 theme,
                 setTheme,
                 resolution,
