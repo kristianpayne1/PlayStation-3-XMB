@@ -18,8 +18,7 @@ export default function Camera() {
             bottom={-CAMERA_ZOOM}
             near={-100}
             far={1000}
-            zoom={1}
-            position={[0, 0, 2]}
+            zoom={1.5}
         />
     );
 }

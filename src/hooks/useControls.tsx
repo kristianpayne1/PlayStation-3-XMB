@@ -1,5 +1,6 @@
 import { useContext, createContext, useState } from "react";
 import type { Dispatch, SetStateAction } from "react";
+import { Color } from "three";
 
 export type Theme =
     | "original"
@@ -21,6 +22,8 @@ export type ControlsContext = {
     setOpen: Dispatch<SetStateAction<boolean>>;
     theme: Theme;
     setTheme: Dispatch<SetStateAction<Theme>>;
+    color: Color;
+    setColor: Dispatch<SetStateAction<Color>>;
     resolution: number;
     setResolution: Dispatch<SetStateAction<number>>;
     length: number;
@@ -36,6 +39,8 @@ const contextDefaults: ControlsContext = {
     setOpen: () => {},
     theme: "original",
     setTheme: () => {},
+    color: new Color("#fff"),
+    setColor: () => {},
     resolution: 128,
     setResolution: () => {},
     length: 1.0,
@@ -61,6 +66,7 @@ function useControls() {
 export function ControlsProvider({ children }: { children: React.ReactNode }) {
     const [open, setOpen] = useState<boolean>(contextDefaults.open);
     const [theme, setTheme] = useState<Theme>(contextDefaults.theme);
+    const [color, setColor] = useState<Color>(contextDefaults.color);
     const [resolution, setResolution] = useState<number>(
         contextDefaults.resolution,
     );
@@ -77,6 +83,8 @@ export function ControlsProvider({ children }: { children: React.ReactNode }) {
                 setOpen,
                 theme,
                 setTheme,
+                color,
+                setColor,
                 resolution,
                 setResolution,
                 length,

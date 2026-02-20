@@ -1,6 +1,7 @@
 precision mediump float;
 
 uniform float uAlpha;
+uniform vec3 uColor;
 
 varying vec3 vPosition;
 
@@ -17,7 +18,7 @@ float fresnel(float bias, float scale, float power, vec3 i, vec3 n) {
 
 
 void main() {
-  vec3 color = vec3(1.0);
+  vec3 color = uColor;
 
   vec3 computedNormal = computeNormal(vPosition);
   vec3 eyeVector = vec3(0.0, 0.0, -1.0);

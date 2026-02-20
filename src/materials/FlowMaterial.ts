@@ -1,5 +1,6 @@
 import { shaderMaterial } from "@react-three/drei";
 import { type ThreeElement } from "@react-three/fiber";
+import { Color } from "three";
 
 import flowVertexShader from "../shaders/flow.vertex.glsl";
 import flowFragmentShader from "../shaders/flow.fragments.glsl";
@@ -7,6 +8,7 @@ import flowFragmentShader from "../shaders/flow.fragments.glsl";
 const defaultFlowUniforms = {
     uTime: 0,
     uAlpha: 0.5,
+    uColor: new Color("#fff"),
 };
 
 const FlowMaterial = shaderMaterial(

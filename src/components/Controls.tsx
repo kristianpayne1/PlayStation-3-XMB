@@ -1,6 +1,7 @@
-import { Button, Flex, Heading, DropdownMenu, Slider } from "@radix-ui/themes";
+import { Button, DropdownMenu, Flex, Heading, Slider } from "@radix-ui/themes";
 import useControls from "../hooks/useControls";
 import type { Theme } from "../hooks/useControls";
+import ColorPicker from "./ColorPicker";
 
 const themes: Theme[] = [
     "original",
@@ -19,7 +20,6 @@ const themes: Theme[] = [
 ];
 
 const toTitleCase = (value: string) => value[0].toUpperCase() + value.slice(1);
-
 type ControlProps = React.PropsWithChildren<{
     label: string;
 }>;
@@ -68,6 +68,8 @@ function Controls() {
     const {
         theme,
         setTheme,
+        color,
+        setColor,
         resolution,
         setResolution,
         length,
@@ -83,7 +85,7 @@ function Controls() {
             <Heading as="h2" size="4" align="center">
                 Configuration
             </Heading>
-            <Control label="Color Theme">
+            <Control label="Theme">
                 <DropdownMenu.Root>
                     <DropdownMenu.Trigger>
                         <Button
@@ -105,6 +107,9 @@ function Controls() {
                         ))}
                     </DropdownMenu.Content>
                 </DropdownMenu.Root>
+            </Control>
+            <Control label="Wave Color">
+                <ColorPicker color={color} onChange={setColor} />
             </Control>
             <SliderControl
                 label="Resolution"
