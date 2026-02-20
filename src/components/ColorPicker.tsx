@@ -1,39 +1,29 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Box, Button, DropdownMenu, Flex, TextField } from "@radix-ui/themes";
-import { Color } from "three";
 
 type ColorPickerProps = {
     label?: string;
-    color: Color;
-    onChange: (color: Color) => void;
+    color: string;
+    onChange: (color: string) => void;
 };
 
-const hexPattern = /^#?[0-9a-fA-F]{6}$/;
+const hexPattern = /^#?[0-9a-fA-F]{6}$|^#?[0-9a-fA-F]{3}$/;
 
 const normalizeHex = (value: string) =>
     (value.startsWith("#") ? value : `#${value}`).toLowerCase();
 
 export default function ColorPicker({ color, onChange }: ColorPickerProps) {
-    const [hexInput, setHexInput] = useState(`#${color.getHexString()}`);
+    const [hexColor, setHexColor] = useState(normalizeHex(color));
 
     useEffect(() => {
-        setHexInput(`#${color.getHexString()}`);
+        if (!hexPattern.test(normalizeHex(color))) return;
+        setHexColor(normalizeHex(color));
     }, [color]);
 
-    const applyHexColor = (value: string) => {
-        if (!hexPattern.test(value)) return;
-        const normalizedHex = normalizeHex(value);
-        setHexInput(normalizedHex);
-        onChange(new Color(normalizedHex));
-    };
-
-    const handleColorInputBlur = () => {
-        if (!hexPattern.test(hexInput)) {
-            setHexInput(`#${color.getHexString()}`);
-            return;
-        }
-
-        setHexInput(normalizeHex(hexInput));
+    const updateHexColor = (value: string) => {
+        const newHex = normalizeHex(value);
+        setHexColor(newHex);
+        if (hexPattern.test(newHex)) onChange(newHex);
     };
 
     return (
@@ -50,10 +40,10 @@ export default function ColorPicker({ color, onChange }: ColorPickerProps) {
                             style={{
                                 borderRadius: "999px",
                                 border: "1px solid var(--gray-8)",
-                                backgroundColor: `#${color.getHexString()}`,
+                                backgroundColor: hexColor,
                             }}
                         />
-                        {hexInput}
+                        {hexColor}
                     </Flex>
                     <DropdownMenu.TriggerIcon />
                 </Button>
@@ -66,23 +56,16 @@ export default function ColorPicker({ color, onChange }: ColorPickerProps) {
                         type="color"
                         aria-label="Pick a color"
                         className="w-full h-10 border-0 padding-0 bg-transparent cursor-pointer"
-                        value={
-                            hexPattern.test(hexInput)
-                                ? normalizeHex(hexInput)
-                                : `#${color.getHexString()}`
-                        }
+                        value={hexColor}
                         onChange={(event) =>
-                            applyHexColor(event.currentTarget.value)
+                            updateHexColor(event.currentTarget.value)
                         }
                     />
                     <TextField.Root
-                        value={hexInput}
-                        onChange={(event) => {
-                            const nextValue = event.currentTarget.value;
-                            setHexInput(nextValue);
-                            applyHexColor(nextValue);
-                        }}
-                        onBlur={handleColorInputBlur}
+                        value={hexColor}
+                        onChange={(event) =>
+                            updateHexColor(event.currentTarget.value)
+                        }
                         placeholder="#ffffff"
                     />
                 </Flex>

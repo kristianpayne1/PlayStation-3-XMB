@@ -2,6 +2,7 @@ import { Button, DropdownMenu, Flex, Heading, Slider } from "@radix-ui/themes";
 import useControls from "../hooks/useControls";
 import type { Theme } from "../hooks/useControls";
 import ColorPicker from "./ColorPicker";
+import { Color } from "three";
 
 const themes: Theme[] = [
     "original",
@@ -109,7 +110,10 @@ function Controls() {
                 </DropdownMenu.Root>
             </Control>
             <Control label="Wave Color">
-                <ColorPicker color={color} onChange={setColor} />
+                <ColorPicker
+                    color={color.getHexString()}
+                    onChange={(color) => setColor(new Color(color))}
+                />
             </Control>
             <SliderControl
                 label="Resolution"
